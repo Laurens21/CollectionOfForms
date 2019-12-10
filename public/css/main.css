@@ -1,0 +1,10 @@
+.together{
+    display: flex;
+    justify-content: space-between;
+    max-width: 250px;
+    max-height: 38px;
+}
+
+.navigation , .sr-only{
+    color: black;
+}

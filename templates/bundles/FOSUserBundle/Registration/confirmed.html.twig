@@ -1,0 +1,13 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    <div style="display: flex; justify-content: center;align-items: center; flex-direction: column;">
+        <h4>{{ 'Thank you for creating an account'|trans({'%username%': user.username}) }}</h4>
+        <a class="btn btn-sm btn-primary text-uppercase font-weight-bold" href="/">Homepage</a>
+        {% if targetUrl %}
+        <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+        {% endif %}
+    </div>
+{% endblock fos_user_content %}

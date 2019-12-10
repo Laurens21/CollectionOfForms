@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ContactController!{% endblock %}
+
+{% block body %}
+<div>
+    <h2 style="text-align: center; font-size: 4rem; padding-bottom: 25px">Contact</h2>
+</div>
+<div style="display: flex; padding-bottom: 30px">
+    <div style="width: 100%; margin-right: 10px">
+        <form name="form" method="POST" action="contactform" class="text-center">
+            <input style="margin: 0 0 25px 0;" required type="text" name="firstname" class="form-control" placeholder="Firstname">
+            <input style="margin: 25px 0 25px 0;" required type="text" name="lastname" class="form-control" placeholder="Lastname">
+            <input style="margin: 25px 0 25px 0;" required type="text" name="email" class="form-control" placeholder="Email">
+            <input style="margin: 25px 0 25px 0;" required type="text" name="address" class="form-control" placeholder="Address">
+            <input style="margin: 25px 0 25px 0;" required type="text" name="postcode" class="form-control" placeholder="Postcode">
+            <input style="margin: 25px 0 25px 0;" required type="text" name="phonenumber" class="form-control" placeholder="Phonenumber">
+            <textarea style="margin: 25px 0 25px 0;" maxlength="255" required name="question" class="form-control" placeholder="Type here your questions ..."></textarea>
+            <input type="submit" class="btn btn-success" style="padding: 20px 70px">
+        </form>
+    </div>
+    <div style="width: 100%; margin-left: 10px">
+            <div style="width: 100%; height: 100%;" id="map"></div>
+        </div>
+        <script>
+            function myMap() {
+                var mapOptions = {
+                    center: new google.maps.LatLng(41.38879, 2.15899),
+                    zoom: 10,
+                    mapTypeId: google.maps.MapTypeId.HYBRID
+                };
+                var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    
+                var myLatLng = {lat: 41.38879, lng: 2.15899};
+    
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 10,
+                    center: myLatLng
+                });
+    
+                var marker = new google.maps.Marker({
+                    position: myLatLng,
+                    map: map,
+                    title: 'Hotel California'
+                });
+            }
+        </script>
+    
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMcm841o-sNzOaG2SJ8pfz5pSS70SVc6I&amp;callback=myMap"></script>
+    </div>
+    
+</div>
+{% endblock %}
